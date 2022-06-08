@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+:root {
+  --mainFont: 'Kumbh Sans', sans-serif;
+  --darkBlueText: hsl(238, 29%, 16%);
+  --redText: hsl(14, 88%, 65%);
+  --violetBackground: hsl(273, 75%, 66%);
+  --blueBackground: hsl(240, 73%, 65%);
+  --veryDarkGrayishBlueText: hsl(237, 12%, 33%);
+  --darkGrayishBlueText: hsl(240, 6%, 50%);
+  --lightBlueDivider: hsl(240, 5%, 91%);
+  --white: #fff;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  font-family: var(--mainFont);
+  line-height: 1.6;
+  min-height: 100vh;
+  color: var(--veryDarkGrayishBlueText);
+  background: linear-gradient(var(--violetBackground), var(--blueBackground)) no-repeat;
+}
+
+h1 {
+  font-size: 1.7rem;
+  line-height: 1;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--darkBlueText);
+}
+
+img {
+  max-width: 100%;
+}
+
+.faq__content > * + * {
+  margin-top: 0.5rem;
+}
+
+.image__cube {
+  display: none;
+}
+
+.main__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 35rem;
+  margin: 8rem 1.5rem 1.5rem 1.5rem;
+  border-radius: 1.5rem;
+  background-image: url('./images/bg-pattern-desktop.svg');
+  background-color: var(--white);
+  background-repeat: no-repeat;
+  background-size: 15rem;
+  background-position: center -8.5rem;
+  box-shadow: 0px 20px 30px 0 rgba(0, 0, 0, 0.4);
+}
+
+.main__card .main__illustration {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.main__card .main__illustration picture {
+  margin-top: -6.7rem;
+  margin-left: -2rem;
+}
+
+.main__card .faq {
+  padding: 3rem 1.5rem;
+  height: 24rem;
+}
+
+.main__card .faq__item {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--lightBlueDivider);
+}
+
+.main__card .faq__question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.main__card .faq__question.active__question {
+  color: var(--darkBlueText);
+  font-weight: bold;
+}
+
+.main__card .faq__question:hover {
+  color: var(--redText);
+}
+
+.main__card .faq__answer {
+  max-height: 0;
+  margin: 0;
+  padding-right: 0.5rem;
+  color: var(--darkGrayishBlueText);
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.main__card .show__answer {
+  max-height: 10rem;
+  margin-top: 0.75rem;
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    text-align: left;
+  }
+
+  .image__cube {
+    position: absolute;
+    display: block;
+    width: 11rem;
+    top: 15rem;
+    left: -5.5rem;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .move__cube {
+    transform: translateX(-2rem);
+  }
+
+  .main__card {
+    flex-direction: row;
+    align-items: center;
+    max-width: 50rem;
+    margin-top: 1.5rem;
+    background-size: 50rem;
+    background-position: -30rem -14.5rem;
+  }
+
+  .main__card .main__illustration {
+    flex: 1 1 40%;
+    overflow: hidden;
+  }
+
+  .main__card .main__illustration picture {
+    margin: 0;
+    margin-left: -4rem;
+  }
+
+  .main__card .faq {
+    flex: 1 1 60%;
+    height: 26rem;
+    padding: 4rem 5rem;
+  }
+}
+
+@media screen and (max-height: 400px) {
+  .faq__content > * + * {
+    margin-top: 0.5rem;
+  }
+
+  h1 {
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+
+  .image__cube {
+    position: absolute;
+    display: block;
+    width: 8rem;
+    top: 8.75rem;
+    left: -4rem;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .move__cube {
+    transform: translateX(-1.5rem);
+  }
+
+  .main__card {
+    flex-direction: row;
+    align-items: center;
+    max-width: 40rem;
+    margin: 0.5rem 2rem;
+    background-size: 30rem;
+    background-position: -14rem -6rem;
+  }
+
+  .main__card .main__illustration {
+    flex: 1 1 40%;
+  }
+
+  .main__card .main__illustration picture {
+    margin-left: -3.3rem;
+  }
+
+  .main__card .faq {
+    flex: 1 1 60%;
+    padding: 2rem 3rem;
+    height: 21.5rem;
+  }
+
+  .main__card .faq__item {
+    padding-bottom: 0.5rem;
+  }
+}
